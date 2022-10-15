@@ -30,20 +30,6 @@ class MainFragment :BrowseSupportFragment() {
             adapter = buildAdapter()
         }
 
-        onItemViewClickedListener =
-            OnItemViewClickedListener { vh, movie, _, _ ->
-                val bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(
-                    requireActivity(),
-                    (vh.view as ImageCardView).mainImageView,
-                    DetailActivity.SHARED_ELEMENT_NAME
-                ).toBundle()
-
-                val intent = Intent(requireContext(), DetailActivity::class.java).apply {
-                    putExtra(DetailActivity.MOVIE_EXTRA, movie as Movie)
-                }
-                startActivity(intent, bundle)
-            }
-
         onItemViewSelectedListener = OnItemViewSelectedListener { _, movie, _, _ ->
             (movie as? Movie)?.let { backgroundState.loadUrl(movie.poster) }
         }

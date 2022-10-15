@@ -24,7 +24,7 @@ class DetailFragment: DetailsSupportFragment() {
         rowsAdapter = ArrayObjectAdapter(presenter)
 
         val row = DetailsOverviewRow(movie)
-//        row.l   .loadImageUrl(requireContext(), movie.poster)
+//        row.(requireContext(), movie.poster)
         row.actionsAdapter = presenter.buildActions()
 
         rowsAdapter.add(row)
